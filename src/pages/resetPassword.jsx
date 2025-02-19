@@ -16,7 +16,8 @@ const ResetPassword = () => {
   const [timer, setTimer] = useState(0);
   const [isResendDisabled, setIsResendDisabled] = useState(true);
 
-  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,}$/;
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{5,}$/;
+
 
   useEffect(() => {
     if (!email) {
