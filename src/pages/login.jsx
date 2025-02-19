@@ -55,7 +55,7 @@ const Login = () => {
             </Button>
 
             <Typography variant="body2" sx={{ textAlign: "center", mt: 2 }}>
-              <Link href="/reset-request" underline="hover">
+              <Link href="/#/reset-request" underline="hover">
                 Forgot password?
               </Link>
             </Typography>
