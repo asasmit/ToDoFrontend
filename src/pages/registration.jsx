@@ -20,8 +20,6 @@ const Register = () => {
     setError(""); // Clear previous error message
     setLoading(true); // Disable button on submit
 
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,}$/;
-
     if (!name || !email || !username || !password || !confirmPassword) {
       setError("Please fill in all fields.");
       setLoading(false);
@@ -32,9 +30,9 @@ const Register = () => {
       setLoading(false);
       return;
     }
-    if (!passwordRegex.test(password)) {
-      setError("Password must have at least one uppercase letter, one lowercase letter, one digit, one special symbol, and be more than 4 characters.");
-      setLoading(false);
+  }
+    if (password.length <= 8) {  // Only check length
+      setError("Password must be more than 8 characters.");
       return;
     }
 
