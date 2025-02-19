@@ -7,14 +7,17 @@ const ResetPasswordRequest = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false); // Add loading state
   const navigate = useNavigate();
 
   const handleSendOTP = async () => {
     setMessage("");
     setError("");
+    setLoading(true); // Disable button
 
     if (!email) {
       setError("Please enter your email.");
+      setLoading(false); // Re-enable button if error
       return;
     }
 
@@ -28,6 +31,7 @@ const ResetPasswordRequest = () => {
       }, 2000);
     } catch (err) {
       setError(err.response?.data?.error || "Failed to send OTP. Please try again.");
+      setLoading(false); // Re-enable button on error
     }
   };
 
@@ -50,10 +54,18 @@ const ResetPasswordRequest = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            disabled={loading} // Disable input when loading
           />
 
-          <Button variant="contained" color="primary" fullWidth sx={{ mt: 2 }} onClick={handleSendOTP}>
-            Send OTP
+          <Button 
+            variant="contained" 
+            color="primary" 
+            fullWidth 
+            sx={{ mt: 2 }} 
+            onClick={handleSendOTP}
+            disabled={loading} // Disable button while loading
+          >
+            {loading ? "Sending OTP..." : "Send OTP"} {/* Change button text */}
           </Button>
         </CardContent>
       </Card>
