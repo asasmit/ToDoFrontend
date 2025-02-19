@@ -16,9 +16,6 @@ const ResetPassword = () => {
   const [timer, setTimer] = useState(0);
   const [isResendDisabled, setIsResendDisabled] = useState(true);
 
-  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{5,}$/;
-
-
   useEffect(() => {
     if (!email) {
       navigate("/reset-request");
@@ -52,8 +49,8 @@ const ResetPassword = () => {
       return;
     }
 
-    if (!passwordRegex.test(newPassword)) {
-      setError("Password must have at least one uppercase letter, one lowercase letter, one digit, one special symbol, and be more than 4 characters.");
+    if (password.length <= 8) {  // Only check length
+      setError("Password must be more than 8 characters.");
       return;
     }
 
