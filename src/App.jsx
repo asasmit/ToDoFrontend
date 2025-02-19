@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { Box, useMediaQuery, IconButton, Drawer, ThemeProvider, createTheme } from "@mui/material";
 import Sidebar from "./components/sidebar";
 import Dashboard from "./pages/todo";
@@ -47,7 +47,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
+      <Router>
         <Box sx={{ display: "flex", height: "100vh" }}>
           {/* Hamburger Menu for Mobile */}
           {isMobile && (
@@ -128,7 +128,7 @@ function App() {
             </Routes>
           </Box>
         </Box>
-      </BrowserRouter>
+      </Router>
     </ThemeProvider>
   );
 }
