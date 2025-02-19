@@ -18,7 +18,8 @@ const Register = () => {
     e.preventDefault();
     setError(""); // Clear previous error message
   
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,}$/;
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{5,}$/;
+
   
     if (!name || !email || !username || !password || !confirmPassword) {
       setError("Please fill in all fields.");
