@@ -7,6 +7,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false); // Add loading state
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -16,10 +17,14 @@ const Login = () => {
       setError("Please fill in all fields.");
       return;
     }
+
+    setLoading(true); // Disable button
+
     try {
       await login(username, password, navigate);
     } catch (err) {
       setError("Invalid username or password.");
+      setLoading(false); // Re-enable button on error
     }
   };
 
@@ -40,6 +45,7 @@ const Login = () => {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
+              disabled={loading} // Disable input when loading
             />
             <TextField
               label="Password"
@@ -49,9 +55,17 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              disabled={loading} // Disable input when loading
             />
-            <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2 }}>
-              Login
+            <Button 
+              type="submit" 
+              variant="contained" 
+              color="primary" 
+              fullWidth 
+              sx={{ mt: 2 }} 
+              disabled={loading} // Disable button while loading
+            >
+              {loading ? "Logging in..." : "Login"} {/* Show loading text */}
             </Button>
 
             <Typography variant="body2" sx={{ textAlign: "center", mt: 2 }}>
