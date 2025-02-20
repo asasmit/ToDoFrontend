@@ -32,3 +32,6 @@ This is the frontend of a Todo App built using **React** and **MUI (Material-UI)
    ```sh
    npm run dev
    ```
+   
+## Deployment
+The app is live at: https://todoclient-197c.onrender.com/
