@@ -19,8 +19,8 @@ This is the frontend of a Todo App built using **React** and **MUI (Material-UI)
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/todo-app-frontend.git
-   cd todo-app-frontend
+   git clone https://github.com/asasmit/ToDoFrontend.git
+   cd ToDoFrontend
    ```
 
 2. Install dependencies:
