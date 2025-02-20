@@ -25,8 +25,21 @@ const Register = () => {
       setLoading(false);
       return;
     }
+    
     if (password !== confirmPassword) {
       setError("Passwords do not match.");
+      setLoading(false);
+      return;
+    }
+
+    if (name.length <= 2) {  // Only check length
+      setError("Name must be more than 2 characters.");
+      setLoading(false);
+      return;
+    }
+
+    if (username.length <= 3) {  // Only check length
+      setError("Username must be more than 3 characters.");
       setLoading(false);
       return;
     }
