@@ -33,6 +33,7 @@ const Register = () => {
     
     if (password.length <= 8) {  // Only check length
       setError("Password must be more than 8 characters.");
+      setLoading(false);
       return;
     }
 
