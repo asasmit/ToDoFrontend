@@ -1,8 +1,34 @@
-# React + Vite
+# Todo App Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend of a Todo App built using **React** and **MUI (Material-UI)**. The app allows users to manage their tasks efficiently with features like task creation, updating, filtering, and authentication.
 
-Currently, two official plugins are available:
+## Features
+- User authentication (signup, login with OTP verification)
+- Search tasks by title and description.
+- Responsive design optimized for mobile and desktop
+- Smooth UI with Material-UI components
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **React** (Vite setup for fast development)
+- **MUI (Material-UI)** for styling and UI components
+- **React Router** for navigation
+- **Axios** for API calls
+- **Context** for state management
+
+## Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-username/todo-app-frontend.git
+   cd todo-app-frontend
+   ```
+
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+
+3. Start the development server:
+   ```sh
+   npm run dev
+   ```
